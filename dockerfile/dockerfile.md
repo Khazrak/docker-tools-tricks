@@ -1,7 +1,7 @@
 # Dockerfile
 
-So what differs a Dockerfile written from an experienced user from an inexperienced?
-Answer: The number of Layers their Images will contain. And how do we control this?
+So what differs a Dockerfile written from an experienced user from an inexperienced?  
+Answer: The number of Layers their Images will contain. And how do we control this?  
 Easy, you combine commands. So instead of running 10 RUN commands, you do 1. For it to work you need to use && between the commands. So here are two examples:
 
 *Example 1: Bad Dockerfile*
@@ -57,11 +57,11 @@ RUN    apt-get update && \
 CMD    less /opt/file.txt
 ```
 
-*Layers:*
-The Bad Dockerfile creates at least 10 layers when it builds the Image. Every ENV and RUN command becomes a separate layer. 
-*Virtual Size:*
-Another bad thing about the Bad Dockerfile is that if the download of a file is in one layer and the unzip and remove is in another the size will not go down even if we remove the zip.
-If you do the download, unzip and remove of zip file in one command, then only the size of the unzipped file will be left.
-*Explanation:*
+**Layers:**  
+The Bad Dockerfile creates at least 10 layers when it builds the Image. Every ENV and RUN command becomes a separate layer.  
+**Virtual Size:**  
+Another bad thing about the Bad Dockerfile is that if the download of a file is in one layer and the unzip and remove is in another the size will not go down even if we remove the zip.  
+If you do the download, unzip and remove of zip file in one command, then only the size of the unzipped file will be left.  
+**Explanation:**  
 && in linux runs another command after the first has finished, if you only use one & then the commands are run at parallel. The \ is so we don’t have to write the command on one line (like a newline character).
 

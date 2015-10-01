@@ -9,10 +9,10 @@ Once I did a ugly hack script so the custom script was run first, slept and then
 
 This was not a good solution but it was a solution.
 
-So the other day i stumbled on a Linux command not used for scripting but could work well in containers. The command *fg*. The fg command puts a command that is run in background (usually by running it with one & character). This means that you could start the database, run the script and then use the fg command to listen to the database.
+So the other day i stumbled on a Linux command not used for scripting but could work well in containers. The command **fg**. The fg command puts a command that is run in background (usually by running it with one & character). This means that you could start the database, run the script and then use the fg command to listen to the database.
 
-Now people will say that you shouldn’t use job handling in non-interactive mode since you can control processes by PID. But we don’t want to *wait* and  *kill*. We want to “listen”.
+Now people will say that you shouldn’t use job handling in non-interactive mode since you can control processes by PID. But we don’t want to **wait** and  **kill**. We want to “listen”.
 
-You need to use “set -m” in the script to active job handling.
+You need to use “**set -m**” in the script to active job handling.
 
 This solution can be used for more than databases, every where you need to do a little “magic” when you start your container this works fine.
