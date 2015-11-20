@@ -65,3 +65,7 @@ If you do the download, unzip and remove of zip file in one command, then only t
 **Explanation:**  
 && in linux runs another command after the first has finished, if you only use one & then the commands are run at parallel. The \ is so we don’t have to write the command on one line (like a newline character).
 
+
+**Warning about Chown**
+If you chown -R in another RUN-COMMAND then it will se all the files it touches as changed and add this to the Image Layer (and total size). 
+Ether chown -R in a combined RUN with the other commands or chown that specific subfolder or specific file.
